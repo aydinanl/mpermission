@@ -39,9 +39,9 @@ public struct MPermissionView: View {
                 
                 List {
                     ForEach((0..<serviceCount), id: \.self) { index in
-                        if let service = manager.services[index] {
-                            PermissionRow(service: service)
-                        }
+                        let service = manager.services[index]
+                        
+                        PermissionRow(service: service)
                     }
                 }
                 .environment(\.defaultMinListRowHeight, 60)
@@ -58,14 +58,14 @@ public struct MPermissionView: View {
                     ).padding(.bottom, 10)
                     
                     ForEach((0..<requiredServices.count), id: \.self) { index in
-                        if let service = requiredServices[index] {
-                            DescText(
-                                text: service.reason ?? "",
-                                color: .orange,
-                                opacity: 1
-                            )
-                            .padding(.bottom, 5)
-                        }
+                        let service = requiredServices[index]
+                        
+                        DescText(
+                            text: service.reason ?? "",
+                            color: .orange,
+                            opacity: 1
+                        )
+                        .padding(.bottom, 5)
                     }
                 }
 
